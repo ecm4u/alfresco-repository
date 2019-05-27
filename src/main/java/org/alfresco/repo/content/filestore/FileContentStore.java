@@ -87,7 +87,7 @@ public class FileContentStore
     private boolean allowRandomAccess;
     private boolean readOnly;
     private ApplicationContext applicationContext;
-    private boolean deleteEmptyDirs = true;
+    private boolean deleteEmptyDirs = false;
     private FileContentUrlProvider fileContentUrlProvider = new TimeBasedFileContentUrlProvider();
 
     /**

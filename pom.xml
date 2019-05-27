@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>alfresco-repository</artifactId>
     <name>Alfresco Repository</name>
-    <version>6.55</version>
+    <version>6.55.ecm4u.1</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -19,14 +19,16 @@
     </scm>
 
     <distributionManagement>
-        <repository>
-            <id>alfresco-internal</id>
-            <url>https://artifacts.alfresco.com/nexus/content/repositories/releases</url>
-        </repository>
         <snapshotRepository>
-            <id>alfresco-internal-snapshots</id>
-            <url>https://artifacts.alfresco.com/nexus/content/repositories/snapshots</url>
+            <id>ecm4u-snapshots</id>
+            <name>ecm4u Snapshots</name>
+            <url>http://artifacts.ecm4u.intra:8081/artifactory/ecm4u-snapshots/</url>
         </snapshotRepository>
+        <repository>
+            <id>ecm4u-releases</id>
+            <name>ecm4u Snapshots</name>
+            <url>http://artifacts.ecm4u.intra:8081/artifactory/ecm4u-releases/</url>
+        </repository>
     </distributionManagement>
 
     <properties>
@@ -38,7 +40,7 @@
         <dependency.alfresco-legacy-lucene.version>6.2</dependency.alfresco-legacy-lucene.version>
         <dependency.alfresco-core.version>7.3</dependency.alfresco-core.version>
         <dependency.alfresco-greenmail.version>6.1</dependency.alfresco-greenmail.version>
-        <dependency.alfresco-data-model.version>8.8</dependency.alfresco-data-model.version>
+        <dependency.alfresco-data-model.version>8.8.ecm4u.1</dependency.alfresco-data-model.version>
         <dependency.alfresco-jlan.version>7.1</dependency.alfresco-jlan.version>
         <dependency.alfresco-pdf-renderer.version>1.1</dependency.alfresco-pdf-renderer.version>
         <dependency.alfresco-hb-data-sender.version>1.0.9</dependency.alfresco-hb-data-sender.version>
