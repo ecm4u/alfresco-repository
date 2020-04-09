@@ -38,6 +38,8 @@ import org.alfresco.repo.policy.Policy.Arg;
 import org.alfresco.repo.transaction.AlfrescoTransactionSupport;
 import org.alfresco.repo.transaction.TransactionListener;
 import org.alfresco.util.GUID;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -52,7 +54,8 @@ public class TransactionBehaviourQueue implements TransactionListener
     
     // Transaction Keys for Behaviour Execution state
     private static final String QUEUE_CONTEXT_KEY = TransactionBehaviourQueue.class.getName() + ".context";
-    
+
+    private static Log logger = LogFactory.getLog(TransactionBehaviourQueue.class);
     
     /**
      * Queue a behaviour for end-of-transaction execution
@@ -67,6 +70,10 @@ public class TransactionBehaviourQueue implements TransactionListener
     @SuppressWarnings("unchecked")
     public <P extends Policy> void queue(Behaviour behaviour, PolicyDefinition<P> definition, P policyInterface, Method method, Object[] args)
     {
+    	if (logger.isDebugEnabled()) {
+    		logger.debug(String.format("queue(%s, %s, %s, %s, %s)", behaviour, definition, policyInterface, method, args));
+    	}
+    	
         // Construct queue context, if required
         QueueContext queueContext = (QueueContext)AlfrescoTransactionSupport.getResource(QUEUE_CONTEXT_KEY);
         if (queueContext == null)
@@ -101,6 +108,9 @@ public class TransactionBehaviourQueue implements TransactionListener
             else
             {
                 // execute now
+            	if (logger.isDebugEnabled()) {
+            		logger.debug(String.format("in queue(...): execute(%s)", executionContext));
+            	}
                 execute(executionContext);
             }
             queueContext.index.put(key, executionContext);
@@ -138,6 +148,9 @@ public class TransactionBehaviourQueue implements TransactionListener
         ExecutionContext context = queueContext.queue.poll();
         while (context != null)
         {
+        	if (logger.isDebugEnabled()) {
+        		logger.debug(String.format("in beforeCommit(%b): execute(%s)", readOnly, context));
+        	}
             execute(context);
             context = queueContext.queue.poll();
         }
