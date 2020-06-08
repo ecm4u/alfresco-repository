@@ -7,6 +7,9 @@
         <property name="rootLocation" value="${dir.contentstore}" />
         <property name="contentLimitProvider" ref="defaultContentLimitProvider" />
         <property name="fileContentUrlProvider" ref="defaultFileContentUrlProvider"/>
+        <property name="deleteEmptyDirs">
+    	    <value>${dir.contentstore.deleteEmpytDirs}</value>
+       	</property>
     </bean>
    
 </beans>

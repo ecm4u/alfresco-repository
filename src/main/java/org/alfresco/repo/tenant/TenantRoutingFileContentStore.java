@@ -44,6 +44,7 @@ public class TenantRoutingFileContentStore extends AbstractTenantRoutingContentS
 {
     private ContentLimitProvider contentLimitProvider = new NoLimitProvider();
     private FileContentUrlProvider fileContentUrlProvider;
+    private boolean deleteEmptyDirs = true;
     
     /**
      * Sets a new {@link ContentLimitProvider} which will provide a maximum filesize for content.
@@ -51,6 +52,10 @@ public class TenantRoutingFileContentStore extends AbstractTenantRoutingContentS
     public void setContentLimitProvider(ContentLimitProvider contentLimitProvider)
     {
         this.contentLimitProvider = contentLimitProvider;
+    }
+    
+    public void setDeleteEmptyDirs(boolean deleteEmptyDirs) {
+    	this.deleteEmptyDirs = deleteEmptyDirs;
     }
     
     /**
@@ -70,6 +75,7 @@ public class TenantRoutingFileContentStore extends AbstractTenantRoutingContentS
     	}
 
         FileContentStore fileContentStore = new FileContentStore(ctx, new File(contentRoot), extendedEventParams);
+        fileContentStore.setDeleteEmptyDirs(deleteEmptyDirs);
         
         // Set the content filesize limiter if there is one.
         if (this.contentLimitProvider != null)

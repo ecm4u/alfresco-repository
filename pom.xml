@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>alfresco-repository</artifactId>
     <name>Alfresco Repository</name>
-    <version>7.134.1</version>
+    <version>7.134.1.ecm4u.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -15,17 +15,19 @@
         <connection>scm:git:https://github.com/Alfresco/alfresco-repository.git</connection>
         <developerConnection>scm:git:https://github.com/Alfresco/alfresco-repository.git</developerConnection>
         <url>https://github.com/Alfresco/alfresco-repository</url>
-        <tag>alfresco-repository-7.134.1</tag>
+        <tag>alfresco-repository-7.134.1.ecm4u.1</tag>
     </scm>
 
     <distributionManagement>
         <repository>
-            <id>alfresco-public</id>
-            <url>https://artifacts.alfresco.com/nexus/content/repositories/releases</url>
+            <id>ecm4u-releases</id>
+            <name>ecm4u Releases</name>
+            <url>http://artifacts.ecm4u.intra:8081/artifactory/ecm4u-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>alfresco-public</id>
-            <url>https://artifacts.alfresco.com/nexus/content/repositories/snapshots</url>
+            <id>ecm4u-snapshots</id>
+            <name>ecm4u Snapshots</name>
+            <url>http://artifacts.ecm4u.intra:8081/artifactory/ecm4u-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -37,7 +39,7 @@
 
         <maven.build.sourceVersion>11</maven.build.sourceVersion>
 
-        <dependency.alfresco-data-model.version>8.50.2</dependency.alfresco-data-model.version>
+        <dependency.alfresco-data-model.version>8.50.2.ecm4u.1-SNAPSHOT</dependency.alfresco-data-model.version>
         <dependency.alfresco-core.version>7.22</dependency.alfresco-core.version>
 
         <dependency.alfresco-legacy-lucene.version>6.2</dependency.alfresco-legacy-lucene.version>

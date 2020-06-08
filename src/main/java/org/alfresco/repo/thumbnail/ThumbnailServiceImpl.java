@@ -811,7 +811,7 @@ public class ThumbnailServiceImpl implements ThumbnailService,
      * @param nodeRef A {@link NodeRef} representing a thumbnail to provide last modification data for.
      */
     @SuppressWarnings("unchecked")
-    private void addThumbnailModificationData(final NodeRef nodeRef, final String thumbnailName)
+    public void addThumbnailModificationData(final NodeRef nodeRef, final String thumbnailName)
     {
         if (nodeService.exists(nodeRef))
         {
