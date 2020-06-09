@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>alfresco-repository</artifactId>
     <name>Alfresco Repository</name>
-    <version>7.43.ecm4u.3</version>
+    <version>7.43.ecm4u.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -11,12 +11,6 @@
         <version>10</version>
     </parent>
 
-    <scm>
-        <connection>scm:git:git@github.com:Alfresco/alfresco-repository.git</connection>
-        <developerConnection>scm:git:git@github.com:Alfresco/alfresco-repository.git</developerConnection>
-        <url>https://github.com/Alfresco/alfresco-repository</url>
-        <tag>alfresco-repository-7.43</tag>
-    </scm>
 
     <distributionManagement>
         <snapshotRepository>
